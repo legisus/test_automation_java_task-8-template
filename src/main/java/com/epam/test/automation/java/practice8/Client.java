@@ -4,13 +4,15 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
 /**
  * <summary>
  * Implement class according to description of task.
  * </summary>
  */
-public class Client implements Iterator<Deposit> {
+public class Client implements Iterable<Deposit> {
     private Deposit[] deposits;
 
     public Client() {
@@ -60,15 +62,6 @@ public class Client implements Iterator<Deposit> {
         return deposits[number] == null ? BigDecimal.valueOf(0) : deposits[number].income();
     }
 
-    @Override
-    public boolean hasNext() {
-        return false;
-    }
-
-    @Override
-    public Deposit next() {
-        return null;
-    }
     public Deposit[] sortDeposits(){
         Deposit[] sorted = deposits.clone();
         Arrays.sort(sorted, Comparator.reverseOrder());
@@ -87,4 +80,19 @@ public class Client implements Iterator<Deposit> {
         return prolonged;
     }
 
+    @Override
+    public Iterator<Deposit> iterator() {
+
+        return null;
+    }
+
+    @Override
+    public void forEach(Consumer<? super Deposit> action) {
+
+    }
+
+    @Override
+    public Spliterator<Deposit> spliterator() {
+        return null;
+    }
 }

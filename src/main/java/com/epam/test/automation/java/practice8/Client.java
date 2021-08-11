@@ -70,8 +70,8 @@ public class Client implements Iterable<Deposit> {
     }
 
     public int countPossibleToProlongDeposit(){
-        int prolonged = 0;
-        for (int i = 1; i < deposits.length; i++) {
+        int prolonged = -1;
+        for (int i = 0; i < deposits.length; i++) {
             if(deposits[i] != null){
                 if (deposits[i].canToProlong()){
                     prolonged++;

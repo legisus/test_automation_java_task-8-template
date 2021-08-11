@@ -1,6 +1,7 @@
 package com.epam.test.automation.java.practice8;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * <summary>
@@ -22,7 +23,7 @@ public class BaseDeposit extends Deposit{
             sum = sum.add(sum.multiply(percent));
         }
 
-        return sum.subtract(amount).setScale(2);
+        return sum.subtract(amount).setScale(2, RoundingMode.HALF_EVEN);
     }
 
 }

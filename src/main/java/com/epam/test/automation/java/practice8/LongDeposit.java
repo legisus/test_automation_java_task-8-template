@@ -26,7 +26,7 @@ public class LongDeposit extends Deposit {
 
     @Override
     public boolean canToProlong() {
-        return period < period * 12 * 3;
+        return period <= period * 12 * 3;
     }
 
 }

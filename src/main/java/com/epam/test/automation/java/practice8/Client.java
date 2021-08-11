@@ -39,7 +39,7 @@ public class Client implements Iterable<Deposit> {
             }
             sumIncome = sumIncome.add(deposits[i].income());
         }
-        return sumIncome;
+        return sumIncome.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     public BigDecimal maxIncome(){

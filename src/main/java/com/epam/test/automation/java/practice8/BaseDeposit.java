@@ -22,7 +22,7 @@ public class BaseDeposit extends Deposit{
             sum = sum.add(sum.multiply(percent));
         }
 
-        return sum.subtract(amount);
+        return sum.subtract(amount).setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
 }

@@ -1,6 +1,8 @@
 package com.epam.test.automation.java.practice8;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
 
 /**
@@ -67,4 +69,22 @@ public class Client implements Iterator<Deposit> {
     public Deposit next() {
         return null;
     }
+    public Deposit[] sortDeposits(){
+        Deposit[] sorted = deposits.clone();
+        Arrays.sort(sorted, Comparator.reverseOrder());
+        return sorted;
+    }
+
+    public int countPossibleToProlongDeposit(){
+        int prolonged = 0;
+        for (int i = 0; i < deposits.length; i++) {
+            if(deposits[i] != null){
+                if (deposits[i].canToProlong()){
+                    prolonged++;
+                }
+            }
+        }
+        return prolonged;
+    }
+
 }

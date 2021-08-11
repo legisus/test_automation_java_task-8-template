@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * Implement class according to description of task.
  * </summary>
  */
-public class SpecialDeposit extends Deposit implements Prolongable{
+public class SpecialDeposit extends Deposit{
     private final BigDecimal onePercent = new BigDecimal("0.01");
     private final BigDecimal oneThousandUah = new BigDecimal("1000");
 
@@ -30,21 +30,8 @@ public class SpecialDeposit extends Deposit implements Prolongable{
 
     @Override
     public boolean canToProlong() {
-        if (amount.compareTo(oneThousandUah) >= 0){
-            return true;
-        }
-        return false;
+        return amount.compareTo(oneThousandUah) >= 0;
     }
 
-    @Override
-    public int compareTo(Deposit deposit) {
-        BigDecimal sum = income().add(amount);
-        if(deposit.compareTo(deposit) < 0){
-            return 1;
-        }
-        if (deposit.compareTo(deposit) > 0){
-            return -1;
-        }
-        return 0;
-    }
+
 }

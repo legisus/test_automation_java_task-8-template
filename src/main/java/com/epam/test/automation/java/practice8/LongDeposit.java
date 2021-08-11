@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * Implement class according to description of task.
  * </summary>
  */
-public class LongDeposit extends Deposit implements Prolongable {
+public class LongDeposit extends Deposit {
     public LongDeposit(BigDecimal amount, int period) {
         super(amount, period);
     }
@@ -26,17 +26,7 @@ public class LongDeposit extends Deposit implements Prolongable {
 
     @Override
     public boolean canToProlong() {
-        int periodOfTreYears = period * 12 * 3;
-        if (period < periodOfTreYears) {
-            return true;
-        }
-        return false;
+        return period < period * 12 * 3;
     }
 
-    @Override
-    public int compareTo(Deposit o) {
-
-
-        return 0;
-    }
 }

@@ -25,8 +25,4 @@ public class BaseDeposit extends Deposit{
         return sum.subtract(amount);
     }
 
-    @Override
-    public int compareTo(Deposit o) {
-        return 0;
-    }
 }

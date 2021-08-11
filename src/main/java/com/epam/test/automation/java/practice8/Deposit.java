@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * Implement class according to description of task.
  * </summary>
  */
-public abstract class Deposit implements Comparable<Deposit>{
+public abstract class Deposit implements Prolongable, Comparable<Deposit>{
     public final BigDecimal amount;
     public final int period;
 
@@ -17,4 +17,14 @@ public abstract class Deposit implements Comparable<Deposit>{
     }
 
     public abstract BigDecimal income();
+
+    @Override
+    public boolean canToProlong() {
+        return false;
+    }
+    @Override
+    public int compareTo(Deposit deposit) {
+       return income().add(amount).compareTo(deposit.income().add(deposit.amount));
+
+    }
 }

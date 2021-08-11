@@ -1,6 +1,7 @@
 package com.epam.test.automation.java.practice8;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -39,7 +40,7 @@ public class Client implements Iterable<Deposit> {
             }
             sumIncome = sumIncome.add(deposits[i].income());
         }
-        return sumIncome.setScale(2, BigDecimal.ROUND_HALF_UP);
+        return sumIncome.setScale(2, RoundingMode.HALF_EVEN);
     }
 
     public BigDecimal maxIncome(){
@@ -55,7 +56,7 @@ public class Client implements Iterable<Deposit> {
                 }
             }
         }
-        return maxIncome;
+        return maxIncome.setScale(2, RoundingMode.HALF_EVEN);
     }
 
     public BigDecimal getIncomeByNumber (int number){

@@ -31,7 +31,7 @@ public class SpecialDeposit extends Deposit{
 
     @Override
     public boolean canToProlong() {
-        return amount.compareTo(oneThousandUah) >= 0;
+        return amount.compareTo(oneThousandUah) > 0;
     }
 
 

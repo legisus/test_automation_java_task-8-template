@@ -22,12 +22,13 @@ public class LongDeposit extends Deposit {
             sum = sum.add(sum.multiply(percent));
         }
 
-        return sum.subtract(amount).setScale(2, RoundingMode.HALF_EVEN);
+
+        return sum.subtract(amount).setScale(2, RoundingMode.HALF_EVEN).stripTrailingZeros();
     }
 
     @Override
     public boolean canToProlong() {
-        return period <= period * 12 * 3;
+        return period < 36;
     }
 
 }
